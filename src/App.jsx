@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import './style.css';
 
@@ -6,7 +5,6 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
 
-  // Добавление новой заметки
   const addNote = () => {
     if (newNote.trim() !== '') {
       const note = {
@@ -19,12 +17,10 @@ function App() {
     }
   };
 
-  // Удаление заметки
   const deleteNote = id => {
     setNotes(notes.filter(note => note.id !== id));
   };
 
-  // Обработка нажатия Enter
   const handleKeyPress = e => {
     if (e.key === 'Enter') {
       addNote();
@@ -36,7 +32,6 @@ function App() {
       <div className='container'>
         <h1>Мои заметки</h1>
 
-        {/* Форма добавления заметки */}
         <div className='add-note'>
           <input
             type='text'
@@ -51,7 +46,6 @@ function App() {
           </button>
         </div>
 
-        {/* Список заметок */}
         <div className='notes-list'>
           {notes.length === 0 ? (
             <p className='empty-message'>Заметок пока нет</p>
@@ -74,7 +68,6 @@ function App() {
           )}
         </div>
 
-        {/* Статистика */}
         {notes.length > 0 && (
           <div className='stats'>Всего заметок: {notes.length}</div>
         )}
